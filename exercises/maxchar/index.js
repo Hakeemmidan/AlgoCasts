@@ -17,9 +17,10 @@ function maxChar(str) {
     let mostRepeatedCount = 0;
 
     for (let i = 0; i < str.length; i++) {
-        if (countChar(str[i], str) > mostRepeatedCount) {
+        let currentCharCount = countChar(str[i], str)
+        if (currentCharCount > mostRepeatedCount) {
             mostRepeated = str[i]
-            mostRepeatedCount = countChar(str[i], str)
+            mostRepeatedCount = currentCharCount
         }
     }
 
