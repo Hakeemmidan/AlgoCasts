@@ -31,7 +31,6 @@ function reverseInt(n) {
     }
     // It's fine if there are trailing zeros, b/c reversing the string will put them in front
     // converting that to an integer will get rid of the zeros (I think)
-    
     strInt = strInt.split('').reverse().join('')
     let newInt = parseInt(strInt)
     if (hasNegSign) newInt = newInt * -1
