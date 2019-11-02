@@ -5,13 +5,15 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+// input : str
+// output : str
+// objetive : return character that is most repeated. 
+
+/*
+// method 1 : (using helper method)set mostRepeated var to first letter. Go through each character,
+// if it has more repetetion than first character. Then replace it and put that one instead
 function maxChar(str) {
-    // input : str
-    // output : str
-    // objetive : return character that is most repeated. 
     
-    // method : set mostRepeated var to first letter. Go through each character,
-    // if it has more repetetion than first character. Then replace it and put that one instead
 
     let mostRepeated = str[0]
     let mostRepeatedCount = 0;
@@ -34,6 +36,29 @@ function countChar(char, str) {
     }
 
     return count
+}
+*/
+
+// method 2 : (using an object) have variables that keep track of
+// most commonly repeated char and how many times it was repeated
+// If any new char exceeds that current then replace it with new values
+
+function maxChar(str) {
+    const charCounts = {}
+    let mostRepeatedChar = '';
+    let mostRepeatedCharCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i]
+        charCounts[char] = charCounts[char] + 1 || 1
+
+        if (charCounts[char] > mostRepeatedCharCount) {
+            mostRepeatedChar = char
+            mostRepeatedCharCount = charCounts[char]
+        }
+    }
+
+    return mostRepeatedChar
 }
 
 module.exports = maxChar;

@@ -25,7 +25,7 @@ function reverseInt(n) {
         return n
     }
 
-    if (strInt.includes('-')) {
+    if (strInt[0] === '-') {
         strInt = strInt.slice(1)
         hasNegSign = true
     }
