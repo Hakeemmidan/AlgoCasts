@@ -22,4 +22,7 @@ function chunk(array, size) {
     return result;
 }
 
+// time : n
+// space : n
+
 module.exports = chunk;
