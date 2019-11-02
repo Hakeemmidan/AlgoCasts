@@ -39,11 +39,18 @@ function reverse(str) {
 // space : 1
 */
 
+/*
 function reverse(str) {
     // method: Using Array.prototype.reverse
     return str.split('').reverse().join('')
 }
 // time: n
 // space: 1
+*/
+
+// Bonus :
+function reverse(str) {
+    return str.split('').reduce((rev, char) => char + rev, '')
+}
 
 module.exports = reverse;
