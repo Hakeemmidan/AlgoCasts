@@ -8,21 +8,22 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// input : str, str
+// output : bool
+// objective : check if two strings have same count of each letter
+
+
+/*
+// method 1: use an object that collects the letters for each str
+    // then compare both objects using JSON.stringify()
+// pps : letters must be lower case
+     //  Get rid of anything that is not a letter
 function anagrams(stringA, stringB) {
-    // input : str, str
-    // output : bool
-    // objective : check if two strings have same count of each letter
-    // method : use an object that collects the letters for each str
-        // then compare both objects using JSON.stringify()
-    // pps : letters must be lower case
-         //  Get rid of anything that is not a letter
          
     let strAObj = {}
     let currentLetter;
     let filteredStringA = stringA.replace(/[^\w]/g, "").toLowerCase()
     let filteredStringB = stringB.replace(/[^\w]/g, "").toLowerCase()
-
-    
 
     for (let i = 0; i < filteredStringA.length; i++) {
         currentLetter = filteredStringA[i]
@@ -53,9 +54,23 @@ function checkEqualObjects(obj1, obj2) {
     // method : find longer length object by measuring length of keys and then check that the values
     // for for each key are the same in both objects
     // pps : Only works on one level objects (the value cannot be another object)
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+        return false
+    }
+
     const longerObj = Object.keys(obj1).length > Object.keys(obj2) ? obj1 : obj2
 
     return Object.keys(longerObj).every(key => obj1[key] === obj2[key]);
+}
+*/
+
+
+// method 2: filter, sort, and compare
+function anagrams(str1, str2) {
+    filteredStr1 = str1.replace(/[^\w]/g, "").toLowerCase()
+    filteredStr2 = str2.replace(/[^\w]/g, "").toLowerCase()
+
+    return filteredStr1.split('').sort().join('') === filteredStr2.split('').sort().join('')
 }
 
 module.exports = anagrams;
