@@ -38,6 +38,7 @@ function steps(n) {
 }
 */
 
+/*
 // method 2 : Loop through each row and column (double loop again)
     // if col number is equal to or less than row, then fill result with hashtags
     // otherwise, fill it with empty spaces
@@ -61,6 +62,31 @@ function steps(n) {
         }
         console.log(result)
     }
+}
+*/
+
+// method 3 : Solve it using recursion
+function steps(n, row = 0, stairs = '') {
+    // If we've reached the last row
+    if (n === row) {
+        return
+    }
+
+    // If stairs has reached wanted amount
+    if (n === stairs.length) {
+        // console log and move on to next row 
+        console.log(stairs)
+        return steps(n, row + 1)
+    }
+
+    if (stairs.length <= row) {
+        stairs += '#'
+    } else {
+        stairs += ' '
+    }
+
+    // Keep filling up stairs
+    steps(n, row, stairs)
 }
 
 module.exports = steps;
