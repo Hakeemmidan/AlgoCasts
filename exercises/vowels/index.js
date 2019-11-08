@@ -11,8 +11,10 @@
 // output : int
 // objective : count number of vowels in strings
 // pps : lower case string
-
+/*
+// method 1 : iterative
 function vowels(str) {
+    // lower case str
     // keep a counter set to 0
     // have a variable that contins an array of vowels
     // go through each letter using loop
@@ -27,6 +29,13 @@ function vowels(str) {
     }
 
     return counter
+}
+*/
+
+// method 2 : regex
+function vowels(str) {
+    const matches = str.match(/[aeiou]/gi);
+    return matches ? matches.length : 0;
 }
 
 module.exports = vowels;
