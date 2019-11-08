@@ -18,24 +18,59 @@
 // output : str
 // objective : make a pyramid using hashtags (#) that has n number of rows
 
+/*
+// method 1 : iterative
 function pyramid(n) {
-    const numCols = (n * 2) - 1
+    // calculate number of columns in relation to rows
+    // calculate where mid point is going to be
+    // keep a level variable
+        // use for console logs
+
+    // iterate through each row
+        // Empty out level
+        // iterate through each column
+            // if (midpoint - row <= column) AND (midpoint + row >= column)
+                // add a hash to level
+            // otherwise
+                // add a space
+    // console log level
+    const numCols = (2 * n - 1)
     const midPoint = Math.floor(numCols / 2)
-    let res;
+    let level;
 
     for (let row = 0; row < n; row++) {
-        res = '';
-
+        level = ''
         for (let col = 0; col < numCols; col++) {
             if (midPoint - row <= col && midPoint + row >= col) {
-                res += '#'
+                level += '#'
             } else {
-                res += ' '
+                level += ' '
             }
         }
-        
-        console.log(res)
+
+        console.log(level)
     }
+}
+*/
+
+// method 2 : recursive
+function pyramid(n, row = 0, level = '') {
+    if (row === n) {
+        return
+    }
+    const numCols = (2 * n) - 1
+    const midPoint = Math.floor(numCols / 2)
+
+    for (let col = 0; col < numCols; col++) {
+        if (midPoint - row <= col && midPoint + row >= col) {
+            level += '#'
+        } else {
+            level += ' '
+        }
+    }
+    console.log(level)
+    
+    return pyramid(n, row + 1)
 }
 
 module.exports = pyramid;
