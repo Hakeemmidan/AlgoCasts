@@ -14,7 +14,7 @@
 // objective : find the nth fib num
 
 /*
-// ---------------------------------------------------------------------------- //
+// -------------------------------------------------------------------------------------------------------------------------------------------------------- //
 // method 1 : iterative with no arr
 function fib(n) {
     // keep track of 4 variables
@@ -43,9 +43,10 @@ function fib(n) {
 
     return result;
 }
-// time : n
+// time  : n
 // sapce : 1
 */
+// -------------------------------------------------------------------------------------------------------------------------------------------------------- //
 /*
 // method 2: iteratively with arr
 function fib(n) {
@@ -71,10 +72,10 @@ function fib(n) {
 
     return fibs[fibs.length - 1]
 }
-// time : n^2 (assuming that getting the length is O(n))
+// time  : n^2 (assuming that getting the length is O(n))
 // space : 1
 */
-
+// -------------------------------------------------------------------------------------------------------------------------------------------------------- //
 /*
 // method 3: recurively
 function fib(n) {
@@ -84,10 +85,11 @@ function fib(n) {
 
     return fib(n - 1) + fib(n - 2)
 }
-// time : 2 ^ n
+// time  : 2 ^ n
 // space : 1
 */
-
+// -------------------------------------------------------------------------------------------------------------------------------------------------------- //
+/*
 // method 4 : recursively with memoization
 function fib(n, memo = {}) {
     if (n === 0 || n === 1) {
@@ -104,7 +106,32 @@ function fib(n, memo = {}) {
 
     return firstCall + secondCall
 }
-// time : 2 ^ n
+// time  : 2 ^ n
+// space : 1
+*/
+// -------------------------------------------------------------------------------------------------------------------------------------------------------- //
+function memoize(fn) {
+    const cache = {};
+    return (...args) => {
+        if (cache[args]) {
+            return cache[args]
+        }
+
+        let result = fn.apply(this, args)
+        cache[args] = result
+        return result
+    }
+}
+
+function fib(n) {
+    if (n === 0 || n === 1) {
+        return n
+    }
+
+    return fib(n - 1) + fib(n - 2)
+}
+fib = memoize(fib)
+// time  : 2 ^ n
 // space : 1
 
 module.exports = fib;
