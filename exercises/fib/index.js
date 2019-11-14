@@ -75,6 +75,7 @@ function fib(n) {
 // space : 1
 */
 
+/*
 // method 3: recurively
 function fib(n) {
     if (n === 0 || n === 1) {
@@ -82,6 +83,26 @@ function fib(n) {
     }
 
     return fib(n - 1) + fib(n - 2)
+}
+// time : 2 ^ n
+// space : 1
+*/
+
+// method 4 : recursively with memoization
+function fib(n, memo = {}) {
+    if (n === 0 || n === 1) {
+        return n
+    }
+
+    if (memo[n]) return memo[n]
+
+    let firstCall = fib(n - 1, memo)
+    memo[n - 1] = firstCall
+
+    let secondCall = fib(n - 2, memo)
+    memo[n - 2] = secondCall
+
+    return firstCall + secondCall
 }
 // time : 2 ^ n
 // space : 1
