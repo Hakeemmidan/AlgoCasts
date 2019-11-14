@@ -13,6 +13,7 @@
 // output : arr
 // objective : find the nth fib num
 
+/*
 // ---------------------------------------------------------------------------- //
 // method 1 : iterative with no arr
 function fib(n) {
@@ -44,7 +45,33 @@ function fib(n) {
 }
 // time : n
 // sapce : 1
+*/
 
+// method 2: iteratively with arr
+function fib(n) {
+    // if n === 0 or 1 return n
+    // otherwise keep variable arr that keeps track of fib nums
+    // keep adding the sum of the last two nums to it until it has length n + 1
+    // then return last element
 
+    if (n === 1 || n === 0) {
+        return n;
+    }
+
+    let fibs = [0, 1]
+    let lastNum;
+    let beforeLastNum;
+
+    while (fibs.length < n + 1) {
+        lastNum = fibs[fibs.length - 1]
+        beforeLastNum = fibs[fibs.length - 2]
+
+        fibs.push(lastNum + beforeLastNum)
+    }
+
+    return fibs[fibs.length - 1]
+}
+// time : n^2 (assuming that getting the length is O(n))
+// space : 1
 
 module.exports = fib;
