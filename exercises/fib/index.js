@@ -46,7 +46,7 @@ function fib(n) {
 // time : n
 // sapce : 1
 */
-
+/*
 // method 2: iteratively with arr
 function fib(n) {
     // if n === 0 or 1 return n
@@ -72,6 +72,18 @@ function fib(n) {
     return fibs[fibs.length - 1]
 }
 // time : n^2 (assuming that getting the length is O(n))
+// space : 1
+*/
+
+// method 3: recurively
+function fib(n) {
+    if (n === 0 || n === 1) {
+        return n
+    }
+
+    return fib(n - 1) + fib(n - 2)
+}
+// time : 2 ^ n
 // space : 1
 
 module.exports = fib;
