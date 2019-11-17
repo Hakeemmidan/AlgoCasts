@@ -69,6 +69,7 @@ class LinkedList {
     }
 
     getLast() {
+        if (!this.head) return null
         let node = this.head;
 
         while (node.next) {
@@ -132,11 +133,9 @@ class LinkedList {
         // if out of range, retunr null
         let counter = 0;
         let node = this.head;
-        // [a,v,b]
-        // idx === 2
 
         while (counter < idx) {
-            if (!node) return null;
+            if (node === null) return null;
             node = node.next;
             counter++;
         }
