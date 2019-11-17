@@ -179,7 +179,7 @@ class LinkedList {
         let previous = this.getAt(idx - 1);
 
         if (!previous || !previous.next) {
-            this.insertLast(newNode)
+            this.insertLast(nodeData)
             return
         }
 
