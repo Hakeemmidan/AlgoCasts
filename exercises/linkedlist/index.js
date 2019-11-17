@@ -125,7 +125,7 @@ class LinkedList {
 
         previous.next = null;
     }
-
+    
     getAt(idx) {
         // get node at specified index
         // use counter to get to speciifed index
