@@ -144,29 +144,21 @@ class LinkedList {
     }
 
     removeAt(idx) {
-        let counter = 0
-        let previous = this.head;
-        
-        if (!previous && idx > 0 ) {
+        if (!this.head) {
             return null
         }
 
-        if (previous && idx === 0) {
-            this.head = null;
+        if (idx === 0) {
+            this.head = this.head.next
         }
 
-        let current = previous.next;
-        
-        while (current) {
-            if (idx === counter) {
-                previous.next = current.next
-                return
-            }
-
-            previous = current;
-            current = current.next;
-            counter++;
+        if (idx >= this.size()) {
+            return null
         }
+
+        let previous = this.getAt(idx - 1)
+
+        previous.next = previous.next.next
     }
 }
 
