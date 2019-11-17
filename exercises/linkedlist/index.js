@@ -145,20 +145,46 @@ class LinkedList {
 
     removeAt(idx) {
         if (!this.head) {
-            return null
+            return
         }
 
         if (idx === 0) {
             this.head = this.head.next
+            return
         }
 
         if (idx >= this.size()) {
-            return null
+            return
         }
 
         let previous = this.getAt(idx - 1)
 
         previous.next = previous.next.next
+    }
+
+    insertAt(nodeData, idx) {
+        let newNode = new Node(nodeData);
+
+        if (!this.head && idx === 0) {
+            this.head = newNode
+            return
+        }
+
+        if (idx === 0) {
+            newNode.next = this.head;
+            this.head = newNode;
+            return
+        }
+
+        let previous = this.getAt(idx - 1);
+
+        if (!previous || !previous.next) {
+            this.insertLast(newNode)
+            return
+        }
+
+        newNode.next = previous.next
+        previous.next = newNode
     }
 }
 
