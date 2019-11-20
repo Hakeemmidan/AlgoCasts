@@ -31,12 +31,13 @@ function circular(list) {
         // if it is, return true
     // return false
     let visited = [];
-    let node = this.head;
+    let node = list.head;
 
     while (node) {
         if (visited.includes(node.next)) {
             return true;
         }
+
         visited.push(node); 
         node = node.next;
     }
