@@ -20,8 +20,24 @@
     // cannot use counter variable
     // cannot use size function
 
-// method : ... 
+// method : create slow and fast variables
+    // slow moves one node at a time
+    // fast moves two nodes at a time
+    // if fast has two nodes in front of it
+        // keep moving both vars
+    // if there aren't
+        // the node at slow is the mid node
 
-function midpoint(list) {}
+function midpoint(list) {
+    let slow = list.head;
+    let fast = list.head;
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return slow;
+}
 
 module.exports = midpoint;
