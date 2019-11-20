@@ -12,6 +12,16 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
+// input : linked list
+// output : node
+// objective : find the middle node of linked list by
+    // iterating through it only once
+// rules :
+    // cannot use counter variable
+    // cannot use size function
+
+// method : ... 
+
 function midpoint(list) {}
 
 module.exports = midpoint;

@@ -199,6 +199,8 @@ class LinkedList {
         }
     }
 
+    // vvv This is how you make values of a class iteratable
+        // JavaScript
     *[Symbol.iterator]() {
         let node = this.head;
         while (node) {
