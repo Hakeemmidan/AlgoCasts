@@ -33,6 +33,7 @@ function fromLast(list, n) {
 }
 */
 
+/*
 // method 2 : pointers
 function fromLast(list, n) {
     // create fast and slow pointers
@@ -58,6 +59,25 @@ function fromLast(list, n) {
             slow = slow.next;
         }
     }
+}
+*/
+
+// method 3 : pointers but more efficent
+function fromLast(list, n) {
+    let slow = list.head;
+    let fast = list.head;
+
+    while (n > 0) {
+        fast = fast.next;
+        n--;
+    }
+
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    return slow
 }
 
 module.exports = fromLast;
