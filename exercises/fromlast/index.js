@@ -20,16 +20,44 @@
         // i.e. linkedlist is never going to be 0
     // You can't use the size method
 
-// method :
+/*
+// method 1 :
     // removeLast n times
     // getLast
-
 function fromLast(list, n) {
     for (let i = 0; i < n; i++) {
         list.removeLast()
     }
 
     return list.getLast()
+}
+*/
+
+// method 2 : pointers
+function fromLast(list, n) {
+    // create fast and slow pointers
+    // point both to first element
+    // point fast n elements ahead
+    // move both pointers one step at a time
+    // if fast is at last node (next === null)
+        // return slow pointer
+    // else
+        // keep moving forward
+    let slow = list.head;
+    let fast = list.head;
+
+    for (let i = 0; i < n; i++) {
+        fast = fast.next
+    }
+
+    while (true) {
+        if (fast.next === null) {
+            return slow
+        } else {
+            fast = fast.next;
+            slow = slow.next;
+        }
+    }
 }
 
 module.exports = fromLast;
