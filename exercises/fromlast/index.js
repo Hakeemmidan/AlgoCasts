@@ -11,6 +11,17 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
+// input : linkedlist, int
+// output : node
+// objective : find the node n steps away from the last node
+
+// side notes
+    // n will always be less than linkedlist size
+        // i.e. linkedlist is never going to be 0
+    // You can't use the size method
+
+// method :
+
 function fromLast(list, n) {}
 
 module.exports = fromLast;
