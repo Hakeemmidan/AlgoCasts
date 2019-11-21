@@ -21,7 +21,15 @@
     // You can't use the size method
 
 // method :
+    // removeLast n times
+    // getLast
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+    for (let i = 0; i < n; i++) {
+        list.removeLast()
+    }
+
+    return list.getLast()
+}
 
 module.exports = fromLast;
