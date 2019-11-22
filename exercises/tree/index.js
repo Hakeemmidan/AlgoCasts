@@ -45,11 +45,10 @@ class Tree {
         
         let nodes = [this.root];
         let firstEl;
-        while (nodes) {
-            firstEl = nodes[0];
+        while (nodes.length) {
+            firstEl = nodes.shift();
             fn(firstEl);
-            nodes.concat(firstEl.children);
-            nodes = nodes.slice(1);
+            nodes = nodes.concat(firstEl.children);
         }
     }
 }
