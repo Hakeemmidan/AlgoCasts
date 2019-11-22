@@ -31,6 +31,27 @@ class Node {
     }
 }
 
-class Tree {}
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+
+    traverseBF(fn) {
+        // create arr that initially has head in it
+        // while there are elements in the array
+            // remove first element
+            // apply function to first element
+            // get all its children and concat them to the end of array
+        
+        let nodes = [this.root];
+        let firstEl;
+        while (nodes) {
+            firstEl = nodes[0];
+            fn(firstEl);
+            nodes.concat(firstEl.children);
+            nodes = nodes.slice(1);
+        }
+    }
+}
 
 module.exports = { Tree, Node };
