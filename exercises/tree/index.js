@@ -37,18 +37,29 @@ class Tree {
     }
 
     traverseBF(fn) {
-        // create arr that initially has head in it
-        // while there are elements in the array
-            // remove first element
-            // apply function to first element
-            // get all its children and concat them to the end of array
-        
         let nodes = [this.root];
         let firstEl;
         while (nodes.length) {
             firstEl = nodes.shift();
             fn(firstEl);
             nodes = nodes.concat(firstEl.children);
+        }
+    }
+
+    traverseDF(fn) {
+        // go to root
+        // get all its children
+        // see the first child's children
+        // go into the first child
+        // keep doing this until you reach null
+        //   [a]
+        // [a,b,c]
+        let nodes = [this.root];
+        let firstEl;
+        while (nodes.length) {
+            firstEl = nodes.shift()
+            fn(firstEl)
+            nodes = firstEl.children.concat(nodes)
         }
     }
 }
