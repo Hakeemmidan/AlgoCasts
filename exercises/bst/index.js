@@ -17,7 +17,8 @@ class Node {
         this.left = left || null;
         this.right = right || null;
     }
-
+    /*
+    // method 1 : iterative
     insert(data) {
         // start at root
         // if data is >= current node's data
@@ -45,6 +46,28 @@ class Node {
                 } else {
                     currentNode = currentNode.left;
                 }
+            }
+        }
+    }
+    */
+
+    // method 2 : recursive
+    insert(data, currentNode) {
+        if (!currentNode) currentNode = this;
+
+        if (data >= currentNode.data) {
+            if (currentNode.right) {
+                this.insert(data, currentNode.right);
+            } else {
+                currentNode.right = new Node(data);
+                return;
+            }
+        } else {
+            if (currentNode.left) {
+                this.insert(data, currentNode.left);
+            } else {
+                currentNode.left = new Node(data);
+                return;
             }
         }
     }
