@@ -47,13 +47,6 @@ class Tree {
     }
 
     traverseDF(fn) {
-        // go to root
-        // get all its children
-        // see the first child's children
-        // go into the first child
-        // keep doing this until you reach null
-        //   [a]
-        // [a,b,c]
         let nodes = [this.root];
         let firstEl;
         while (nodes.length) {
