@@ -16,7 +16,8 @@
 // objective : find the number of elements at each level starting
     // at the first given node
 
-// method : count number of children getting pushed to our array
+/*
+// method 1 : use counter
 function levelWidth(root) {
     let nodes = [root];
     let levels = [1];
@@ -45,6 +46,37 @@ function levelWidth(root) {
     }
     
     return levels.slice(0, levels.length - 1);
+}
+*/
+
+// method 2 : use stopping var in nodes array
+function levelWidth(root) {
+    // create nodes arr
+        // push root and 'stop' to it
+    // create counters arr
+    // while nodes length > 1
+        // get the first element
+        // if firstEl === 'stop' then
+            // remove it from beginning and add it to end
+            // push 0 to counters array
+        // add one to last coutner element
+    // return counters
+    let nodes = [root, 'stop'];
+    let counters = [0];
+    let firstEl;
+
+    while (nodes.length > 1) {
+        firstEl = nodes.shift();
+        if (firstEl === 'stop') {
+            nodes.push(firstEl);
+            counters.push(0);
+        } else {
+            counters[counters.length - 1]++;
+            nodes.push(...firstEl.children);
+        }
+    }
+
+    return counters;
 }
 
 module.exports = levelWidth;
