@@ -44,7 +44,7 @@ function levelWidth(root) {
         counter--
     }
     
-    return levels;
+    return levels.slice(0, levels.length - 1);
 }
 
 module.exports = levelWidth;
