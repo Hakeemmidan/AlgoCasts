@@ -90,6 +90,8 @@ class Node {
         }
     }
 
+    /*
+    // method 1 : iterative
     contains(num) {
         let currentNode = this;
         while (currentNode) {
@@ -103,6 +105,29 @@ class Node {
         }
 
         return null;
+    }
+    */
+
+    // method 2 : recursive
+    contains(num) {
+        // if number === current node data
+            // retunr number
+        // if number is less than current node data and there is a left node
+            // recurse to left
+        // if less than current node data and there is not a left node, return null
+        // Do same for right as left
+
+        if (num === this.data) {
+            return this;
+        } else if (num < this.data && this.left) {
+            this.left.contains(num);
+        } else if (num < this.data) {
+            return null;
+        } else if (num > this.data && this.right) {
+            this.right.contains(num);
+        } else if (num > this.data) {
+            return null;
+        }
     }
 }
 
