@@ -51,7 +51,8 @@ class Node {
     }
     */
 
-    // method 2 : recursive
+    /*
+    // method 2 : recursive with optional argument
     insert(data, currentNode) {
         if (!currentNode) currentNode = this;
 
@@ -69,6 +70,23 @@ class Node {
                 currentNode.left = new Node(data);
                 return;
             }
+        }
+    }
+    */
+
+    // method 3 : recursive without optional argument
+    insert(data) {
+        if (data >= this.data && this.right) {
+            // this changes the context of 'this'
+            this.right.insert(data);
+        } else if (data >= this.data) {
+            this.right = new Node(data);
+            return;
+        } else if (data < this.data && this.left) {
+            this.left.insert(data);
+        } else if (data < this.data) {
+            this.left = new Node(data);
+            return;
         }
     }
 
