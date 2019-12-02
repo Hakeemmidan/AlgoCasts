@@ -27,6 +27,7 @@ function chunk(array, size) {
 // space : n
 */
 
+/*
 // method 2 : Keep track of the last chunk
     // That is:
         // if it reaches wanted size then ignore it and add a new chunck
@@ -49,5 +50,21 @@ function chunk(arr, size) {
 }
 // time : n
 // space : 1 (since we have a constant number of variables)
+*/
+
+
+// method 3 : Udemy sol
+function chunk(array, size) {
+    const chunked = [];
+    let index = 0;
+
+    while (index < array.length) {
+        chunked.push(array.slice(index, index + size));
+        index += size;
+    }
+
+    return chunked;
+}
+
 
 module.exports = chunk;
