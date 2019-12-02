@@ -39,6 +39,7 @@ function countChar(char, str) {
 }
 */
 
+/*
 // method 2 : (using an object) have variables that keep track of
 // most commonly repeated char and how many times it was repeated
 // If any new char exceeds that current then replace it with new values
@@ -59,6 +60,31 @@ function maxChar(str) {
     }
 
     return mostRepeatedChar
+}
+*/
+
+// method 3 : author's way
+function maxChar(str) {
+    const charMap = {};
+    let max = 0;
+    let maxChar = '';
+
+    for (let char of str) {
+        if (charMap[char]) {
+            charMap[char]++;
+        } else {
+            charMap[char] = 1;
+        }
+    }
+
+    for (let char in charMap) {
+        if (charMap[char] > max) {
+            max = charMap[char];
+            maxChar = char;
+        }
+    }
+
+    return maxChar;
 }
 
 module.exports = maxChar;
